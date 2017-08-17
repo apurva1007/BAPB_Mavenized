@@ -1,0 +1,12 @@
+<div class = 'form'>
+    <form name="userFrom">
+    <div *ngIf="successMessage" [ngClass] = "'success'"> {{user.name}} added. </div>
+    <div *ngIf="errorMessage" [ngClass] = "'error'"> {{errorMessage}} </div>
+    <h1>Register New User</h1>
+
+    UserName: <input type="text" [(ngModel)] = 'user.name' name="name"/>
+    Phone: <input type ="text" [(ngModel)] = 'user.phone' name="phone"/>
+    <input type="button" value="SUBMIT" (click)="register();">
+
+    </form>
+</div>
