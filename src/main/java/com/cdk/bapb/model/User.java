@@ -3,7 +3,7 @@ package com.cdk.bapb.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
+@Table(name="user", schema = "bapb")
 public class User {
 
     @Id

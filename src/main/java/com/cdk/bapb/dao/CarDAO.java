@@ -20,10 +20,15 @@ public class CarDAO {
         return car.getCarId();
     }
 
-    public int save(Car car){
+    public int save(Car car) throws Exception {
         System.out.println(car);
-        entityManager.persist(car);
-        return car.getCarId();
+        try {
+            entityManager.persist(car);
+            return car.getCarId();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     public Car selectById(int carId){

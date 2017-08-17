@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,7 +17,8 @@ public class CarService {
     CarDAO carDAO;
 
     @Transactional
-    public int add(Car car) {
+    public int add(Car car) throws Exception {
+        car.setEntryDate(new Timestamp(System.currentTimeMillis()));
         return carDAO.save(car);
     }
 

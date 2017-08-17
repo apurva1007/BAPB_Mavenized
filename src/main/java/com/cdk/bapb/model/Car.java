@@ -1,46 +1,43 @@
 package com.cdk.bapb.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
-@Table(name="car")
+@Table(name="car", schema = "bapb")
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int carId;
-    private String make;
-    private String model;
-    private String yearOfBuying;
-    private int distanceTravelled;
-    private double baseSellingPrice;
-    private String entryDate;
 
-    /*@OneToOne(targetEntity = User.class)
-    private User user;
-*/
+    private String make;
+
+    private String model;
+
+    private int yearOfBuying;
+
+    private int distanceTravelled;
+
+    private double baseSellingPrice;
+
+    private Timestamp entryDate;
+
     public Car() {
     }
 
-    public Car(String make, String model, String yearOfBuying, int distanceTravelled, double baseSellingPrice, String entryDate) {
+    public Car(String make, String model, int yearOfBuying, int distanceTravelled, double baseSellingPrice, Timestamp entryDate) {
         this.make = make;
         this.model = model;
         this.yearOfBuying = yearOfBuying;
         this.distanceTravelled = distanceTravelled;
         this.baseSellingPrice = baseSellingPrice;
         this.entryDate = entryDate;
-    }
-
-    public Car(int carId, String make, String model, String yearOfBuying, int distanceTravelled, double baseSellingPrice, String entryDate) {
-        this.carId = carId;
-        this.make = make;
-        this.model = model;
-        this.yearOfBuying = yearOfBuying;
-        this.distanceTravelled = distanceTravelled;
-        this.baseSellingPrice = baseSellingPrice;
-        this.entryDate = entryDate;
-//        this.user = user;
     }
 
     public int getCarId() {
@@ -67,11 +64,11 @@ public class Car {
         this.model = model;
     }
 
-    public String getYearOfBuying() {
+    public int getYearOfBuying() {
         return yearOfBuying;
     }
 
-    public void setYearOfBuying(String yearOfBuying) {
+    public void setYearOfBuying(int yearOfBuying) {
         this.yearOfBuying = yearOfBuying;
     }
 
@@ -91,20 +88,11 @@ public class Car {
         this.baseSellingPrice = baseSellingPrice;
     }
 
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
+    public Timestamp getEntryDate() {
+        return entryDate;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "carId='" + carId + '\'' +
-                ", make='" + make + '\'' +
-                ", model='" + model + '\'' +
-                ", yearOfBuying='" + yearOfBuying + '\'' +
-                ", distanceTravelled=" + distanceTravelled +
-                ", baseSellingPrice=" + baseSellingPrice +
-//                ", user=" + user +
-                '}';
+    public void setEntryDate(Timestamp entryDate) {
+        this.entryDate = entryDate;
     }
 }

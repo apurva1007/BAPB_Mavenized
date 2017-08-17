@@ -9,6 +9,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserResourceController {
 
     @Autowired

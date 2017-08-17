@@ -1,34 +1,31 @@
 import {Component} from "@angular/core";
-import {Http,Headers,RequestOptions} from "@angular/http";
-
-import {Car} from "./car";
+import {User} from './user';
+import {Http,Headers, RequestOptions} from "@angular/http";
 
 @Component({
-	selector:'addCar',
-    templateUrl:'../partials/addcar.component.html',
+    selector:'register',
+    templateUrl:'../partials/register.component.html',
     styleUrls:['../css/form.component.css'],
 })
-export class AddCarComponent{
+export class RegisterComponent{
 
-	title:string ="Add Car";
-	car:Car;
-	successMessage:string;
+    user:User;
+    successMessage:string;
     errorMessage:string;
 
-
     constructor(private http:Http) {
-        this.car = new Car("Audi", "Q7", "2007",786999,768767.8);
+        this.user = new User("priyal","3356576788");
     }
 
-    addCar() {
-        console.log("Inside addCar()!!!!");
-        let addUrl = "/rest/addCar";
-
+    register(){
         var requestHeaders = new Headers({'Content-Type': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
+        let addUrl = "http://localhost:8080/rest/addUser";
 
-        this.car.entryDate = "12-06-2017";
-        this.http.post(addUrl, this.car, options).subscribe(
+        console.log(this.user.name);
+        console.log(this.user);
+
+        this.http.post(addUrl, this.user, options).subscribe(
             res => {
                 this.successMessage = res.toString();
                 console.log(res.text());
@@ -40,5 +37,3 @@ export class AddCarComponent{
             });
     }
 }
-
-

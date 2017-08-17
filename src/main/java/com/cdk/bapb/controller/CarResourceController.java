@@ -15,6 +15,7 @@ import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class CarResourceController {
 
     @Autowired
@@ -36,14 +37,14 @@ public class CarResourceController {
     }*/
 
 
-    @RequestMapping(value = "/rest/addCar",consumes ="application/json" ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
-    public String addCar(@RequestBody Car car){
+    @RequestMapping(value = "/rest/addCar",consumes =APPLICATION_JSON_VALUE ,method = RequestMethod.POST)
+    public String addCar(@RequestBody Car car) throws Exception {
         System.out.println(car);
         int value = carService.add(car);
         return "Car with vin '"+value+" ' added successfully!";
     }
 
-    @RequestMapping(value = "/rest/update/{carId}",consumes = APPLICATION_JSON_VALUE ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.PUT)
+    @RequestMapping(value = "/rest/update/{carId}",consumes = APPLICATION_JSON_VALUE ,method = RequestMethod.PUT)
     public String updateCar(@RequestBody Car car, @PathVariable int carId){
         car.setCarId(carId);
         int value = carService.modify(car);
@@ -62,7 +63,7 @@ public class CarResourceController {
         return car;
     }
 
-    @RequestMapping(value = "/rest/delete/{carId}",produces = TEXT_PLAIN_VALUE ,method = RequestMethod.DELETE)
+    @RequestMapping(value = "/rest/delete/{carId}", method = RequestMethod.DELETE)
     public String deleteCar(@PathVariable int carId){
         carService.remove(carId);
         return "Car with vin '"+carId+"'resource deleted successfully!";
