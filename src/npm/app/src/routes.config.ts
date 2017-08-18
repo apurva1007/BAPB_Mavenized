@@ -10,7 +10,7 @@ let routes:Routes = [
     {path:'home',component:HomeComponent},
     {path:'register',component:RegisterComponent},
     {path:'addCar',component:AddCarComponent},
-    {path:'addBid',component:AddBidComponent},
+    {path:'makeBid',component:AddBidComponent},
     {path:'search',component:SearchCarComponent},
     {path:'carDetails/:carId',component:CarDetailsComponent},
     {path:'',redirectTo:'/home',pathMatch:'full'}

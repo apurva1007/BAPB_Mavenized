@@ -16,7 +16,7 @@ public class BidDAO {
 
     public int save(Bid bid) {
         entityManager.persist(bid);
-        return bid.getB_Id();
+        return bid.getBidId();
 
     }
 
@@ -31,5 +31,7 @@ public class BidDAO {
     public Collection<Bid> getAllBids() {
         return (entityManager.createQuery("select * from Bid ")).getResultList();
     }
+
+
 
 }

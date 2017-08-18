@@ -60,6 +60,7 @@ public class CarResourceController {
     public Car readById(@PathVariable int carId){
         System.out.println("VIN is : "+carId);
         Car car = carService.readById(carId);
+        System.out.println("ReadbyId returns:" + car);
         return car;
     }
 

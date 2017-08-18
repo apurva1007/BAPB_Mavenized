@@ -95,4 +95,17 @@ public class Car {
     public void setEntryDate(Timestamp entryDate) {
         this.entryDate = entryDate;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carId=" + carId +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", yearOfBuying=" + yearOfBuying +
+                ", distanceTravelled=" + distanceTravelled +
+                ", baseSellingPrice=" + baseSellingPrice +
+                ", entryDate=" + entryDate +
+                '}';
+    }
 }

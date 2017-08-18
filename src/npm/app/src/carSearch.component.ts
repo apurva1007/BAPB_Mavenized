@@ -33,9 +33,9 @@ export class SearchCarComponent implements  OnInit{
         var  searchURL = "";
 
         if(this.searchField === "" && this.searchFieldValue === "") {
-            searchURL = "/rest/cars";
+            searchURL = "http://localhost:8080/rest/cars";
         }else{
-            searchURL = "/rest/car/"+this.searchField+"/"+this.searchFieldValue;
+            searchURL = "http://localhost:8080/rest/car/"+this.searchField+"/"+this.searchFieldValue;
         }
 
 

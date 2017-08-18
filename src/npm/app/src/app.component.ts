@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
             <input class="button" type="button" value="Register User" (click)="register();" />
             <input class="button" type="button" value="Add Your Car" (click)="addCar();" />
             <input class="button" type="button" value="Search Car" (click)="search();" />
-            <input class="button" type="button" value="Add Bid" (click)="addBid();" />
+            <input class="button" type="button" value="Add Bid" (click)="makeBid();" />
         </div>
        	<router-outlet></router-outlet>      
     </div>`,
@@ -36,8 +36,8 @@ export class AppComponent{
         this.router.navigate(searchLink);
     }
 
-    addBid(){
-        var addBidLink =['/addBid'];
-        this.router.navigate(addBidLink);
+    makeBid(){
+        var makeBidLink =['/makeBid'];
+        this.router.navigate(makeBidLink);
     }
 }

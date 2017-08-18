@@ -18,21 +18,21 @@ public class BidController {
     @Autowired
     BidService bidService;
 
-    @RequestMapping(value = "/bid/add",consumes ="application/json" ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
+    @RequestMapping(value = "/rest/bid/add",consumes ="application/json",method = RequestMethod.POST)
     public String addBid(@RequestBody Bid bid){
         System.out.println(bid);
         int value = bidService.save(bid);
         return "Bid with Bid Id '"+value+" ' added successfully!";
     }
 
-    @RequestMapping(value = "/bid/highestBidder",consumes ="application/json" ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
+    @RequestMapping(value = "/rest/bid/highestBidder",consumes ="application/json" ,method = RequestMethod.POST)
     public String readHighestBid(@RequestBody int carId) {
         Collection<Bid> highestBidder = bidService.readHighestBid(carId);
         System.out.println("====================");
         return "Highest bidder for" + carId + "is : \n \t" + highestBidder ;
     }
 
-    @RequestMapping(value = "/bid/bidHistory",consumes ="application/json" ,produces = TEXT_PLAIN_VALUE ,method = RequestMethod.POST)
+    @RequestMapping(value = "/rest/bid/bidHistory",consumes ="application/json",method = RequestMethod.POST)
     public void readAllBids() {
         System.out.println("=====================");
         System.out.println("Showing the Bid History:");

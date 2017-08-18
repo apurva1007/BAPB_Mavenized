@@ -33,6 +33,7 @@ public class UserResourceController {
     public User readCarByUidAsJson(@PathVariable Integer uid){
         System.out.println("Uid is : "+uid);
         User user = userService.readByUid(uid);
+        System.out.println("User read by id returns: " + user);
         return user;
     }
 
