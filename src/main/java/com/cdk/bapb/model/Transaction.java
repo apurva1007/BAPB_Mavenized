@@ -1,15 +1,22 @@
 package com.cdk.bapb.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 public class Transaction {
-    private String tr_id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int tr_id;
     private Bid bid;
 
     public Transaction() {
     }
 
-    public Transaction(String tr_id, Bid bid) {
+
+    public Transaction(int tr_id, Bid bid) {
         this.tr_id = tr_id;
         this.bid = bid;
 
@@ -19,11 +26,11 @@ public class Transaction {
         this.bid = bid;
     }
 
-    public String getTr_id() {
+    public int getTr_id() {
         return tr_id;
     }
 
-    public void setTr_id(String tr_id) {
+    public void setTr_id(int tr_id) {
         this.tr_id = tr_id;
     }
 
