@@ -16,7 +16,7 @@ public class TransactionService {
     TransactionDAO transactionDAO;
 
     @Transactional
-    public int save(Transaction transaction){ return transactionDAO.addTransaction(transaction); }
+    public void save(Bid highestBid){  transactionDAO.addTransaction(highestBid); }
 
     @Transactional
     public Collection<Transaction> readAllTransactions () {

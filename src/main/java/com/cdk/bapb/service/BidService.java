@@ -11,7 +11,6 @@ import java.util.Collection;
 @Service
 public class BidService {
 
-
     @Autowired
     BidDAO bidDAO;
 

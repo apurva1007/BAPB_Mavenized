@@ -15,6 +15,7 @@ import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 @CrossOrigin(origins = "http://localhost:3000")
 public class BidResourceController {
 
+
     @Autowired
     BidService bidService;
 

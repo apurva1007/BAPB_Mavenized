@@ -17,9 +17,10 @@ public class TransactionDAO {
     @PersistenceContext
     EntityManager entityManager;
 
-    public int addTransaction(Transaction transaction) {
+    public void addTransaction(Bid bid) {
+        Transaction transaction = new Transaction(bid);
         entityManager.persist(transaction);
-        return transaction.getTr_id();
+        System.out.println("transaction added");
 
     }
 
