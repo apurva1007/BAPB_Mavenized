@@ -10,11 +10,13 @@ import {configuredRoutes} from "./routes.config";
 import {SearchCarComponent} from "./carSearch.component";
 import {CarDetailsComponent} from "./carDetails.component";
 import {AddBidComponent} from "./addBid.component";
+import {AllBidsComponent} from "./allBids.component";
+import {HighestBidComponent} from "./highestBid.component";
 
 
 @NgModule({
 	imports:[BrowserModule,FormsModule,HttpModule,configuredRoutes],
-	declarations:[AddCarComponent,AppComponent,HomeComponent,RegisterComponent,SearchCarComponent,CarDetailsComponent, AddBidComponent],
+	declarations:[AddCarComponent,AppComponent,HomeComponent,RegisterComponent,SearchCarComponent,CarDetailsComponent, AddBidComponent,AllBidsComponent,HighestBidComponent],
 	bootstrap:[AppComponent]
 })
 export class AppModule{
