@@ -1,24 +1,44 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+import {Car} from "./car";
+import {Http,Headers, RequestOptions} from "@angular/http";
 
 @Component({
     selector:'carDetails',
-    template:`<div>
-        <h1>BAPBiders</h1>
-        <p>im in in car details</p>
-    </div>`
+    templateUrl:'../partials/carDetails.component.html'
 })
-export class CarDetailsComponent implements OnInit{
+export class CarDetailsComponent  implements  OnInit{
 
-    constructor(private route:ActivatedRoute) {
+    car:Car;
+    id:number;
 
-    }
-
-    ngOnInit() {
-        this.route.params.subscribe(params => {
-           let id = params['carId'];
-           console.log(" got id : "+id);
+    imageUrl=['../images/'+this.id];
+    constructor(private activatedRoute:ActivatedRoute,private router:Router,private http:Http){
+        this.car = new Car("", "", null, null, null );
+        this.activatedRoute.params.subscribe((prms)=>{
+            this.id = parseInt(prms['carId']);
         });
     }
+
+    allBids(){
+        var allBidsLink = ['/allBids/',this.id];
+        this.router.navigate(allBidsLink);
+    }
+
+    makeBid(){
+        var makeBidLink = ['/addBid/',this.id];
+        this.router.navigate(makeBidLink);
+    }
+
+    ngOnInit(){
+        var searchURL= "http://localhost:8080/rest/car/"+this.id;
+
+        var requestHeaders = new Headers({'Accept': 'application/json'});
+        var options = new RequestOptions({headers: requestHeaders});
+
+        this.http.get(searchURL, options).subscribe(res => this.car = res.json());
+        console.log(this.car);
+    }
+
 
 }

@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {Http,Headers,RequestOptions} from "@angular/http";
-import { Router } from '@angular/router';
 import {Car} from "./car";
 
 
@@ -33,7 +32,7 @@ export class SearchCarComponent implements  OnInit{
         var  searchURL = "";
 
         if(this.searchField === "" && this.searchFieldValue === "") {
-            searchURL = "http://localhost:8080/rest/cars";
+            searchURL = "http://localhost:8080/rest/allCars";
         }else{
             searchURL = "http://localhost:8080/rest/car/"+this.searchField+"/"+this.searchFieldValue;
         }

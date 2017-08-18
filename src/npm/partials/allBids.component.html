@@ -1,0 +1,19 @@
+<div>
+    <h1>BAPBiders</h1>
+    <h2> All Bids For Car </h2>
+    <table>
+                <thead>
+                <tr><th>Bidding Date </th><th>Bidding Price</th><th>UserId</th></tr>
+            </thead>
+                <tbody>
+                <tr *ngFor="let bid of bids">
+                        
+                          <td>{{bid.biddingDate}} {{car.model}}</td>
+                          <td>{{bid.biddingPrice}}</td>
+                          <td>{{bid.user}}</td>
+    </tr>
+    </tbody>
+    </table>
+
+
+</div>

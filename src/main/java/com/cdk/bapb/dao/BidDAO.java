@@ -20,18 +20,12 @@ public class BidDAO {
 
     }
 
-    public Collection<Bid> getHighestBid(int carId ) {
-        return (entityManager.createQuery("select * from Bid where biddingPrice=(select maxelement(biddingPrice) from Bid where car.carId = carId)")).getResultList();
+    public Bid getHighestBid(int carId ) {
+        //return (entityManager.createQuery("select * from bidding_details where biddingPrice=(select maxelement(bidding_price) from Bid where car_car_id = carId)")).getResultList();
+        return null;
     }
 
-    public Collection<Bid> getListBidsByCarId(Car car) {
-        return (entityManager.createQuery("* from Bid where user.userId = car.carId")).getResultList();
+    public Collection<Bid> getBidsByCarId(int carId) {
+        return (entityManager.createQuery("* from bidding_details where car_car_id = carId")).getResultList();
     }
-
-    public Collection<Bid> getAllBids() {
-        return (entityManager.createQuery("select * from Bid ")).getResultList();
-    }
-
-
-
 }

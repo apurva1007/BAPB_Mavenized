@@ -37,6 +37,11 @@ public class CarService {
     }
 
     @Transactional
+    public Collection<Car> readCars(String field, String fieldValue) {
+        return carDAO.getCars(field,fieldValue);
+    }
+
+    @Transactional
     public Collection<Car> readAll(){
 //        return carDAO.selectAll();
         return repo.findAll();

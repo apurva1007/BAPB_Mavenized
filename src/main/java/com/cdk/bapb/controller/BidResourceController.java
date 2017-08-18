@@ -13,7 +13,7 @@ import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-public class BidController {
+public class BidResourceController {
 
     @Autowired
     BidService bidService;
@@ -25,16 +25,21 @@ public class BidController {
         return "Bid with Bid Id '"+value+" ' added successfully!";
     }
 
+    @RequestMapping(value = "/rest/bid/highestBidder",produces ="application/json",method = RequestMethod.GET)
+    public Bid readHighestBid(@RequestBody int carId) {
+        Bid bid = readHighestBid(carId);
+        return bid;
+        /*
     @RequestMapping(value = "/rest/bid/highestBidder",consumes ="application/json" ,method = RequestMethod.POST)
     public String readHighestBid(@RequestBody int carId) {
         Collection<Bid> highestBidder = bidService.readHighestBid(carId);
         System.out.println("====================");
         return "Highest bidder for" + carId + "is : \n \t" + highestBidder ;
+    }*/
     }
 
-    @RequestMapping(value = "/rest/bid/bidHistory",consumes ="application/json",method = RequestMethod.POST)
-    public void readAllBids() {
-        System.out.println("=====================");
-        System.out.println("Showing the Bid History:");
+    @RequestMapping(value = "/rest/bid/{carId}",produces ="application/json" ,method = RequestMethod.GET)
+    public Collection<Bid> readAllBidsWithCarId(@RequestBody int carId) {
+        return bidService.readBidsByCar(carId);
     }
 }

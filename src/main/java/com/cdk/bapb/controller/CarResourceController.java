@@ -64,6 +64,11 @@ public class CarResourceController {
         return car;
     }
 
+    @RequestMapping(value = "/car/{field}/{fieldValue}",produces = "application/json" ,method = RequestMethod.GET)
+    public Collection<Car> readCarsAsJson(@PathVariable String field,@PathVariable String fieldValue){
+        return carService.readCars(field,fieldValue);
+    }
+
     @RequestMapping(value = "/rest/delete/{carId}", method = RequestMethod.DELETE)
     public String deleteCar(@PathVariable int carId){
         carService.remove(carId);

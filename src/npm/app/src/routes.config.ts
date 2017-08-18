@@ -5,6 +5,7 @@ import {AddCarComponent} from "./addcar.component";
 import {CarDetailsComponent} from "./carDetails.component";
 import {SearchCarComponent} from "./carSearch.component";
 import {AddBidComponent} from "./addBid.component";
+import {AllBidsComponent} from "./allBids.component";
 
 let routes:Routes = [
     {path:'home',component:HomeComponent},
@@ -13,6 +14,8 @@ let routes:Routes = [
     {path:'makeBid',component:AddBidComponent},
     {path:'search',component:SearchCarComponent},
     {path:'carDetails/:carId',component:CarDetailsComponent},
+    {path:'addBid/:carId',component:AddBidComponent},
+    {path:'allBids/:carId',component:AllBidsComponent},
     {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 

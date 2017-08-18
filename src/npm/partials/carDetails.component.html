@@ -1,0 +1,18 @@
+<div>
+        <h1>BAPBiders</h1>
+        <img width="100" height="100" [src]="imageUrl+car.logo">
+        <table class="carDetails">
+        <tr>
+            <td>{{car.make}}</td>
+            </tr>
+            <tr> <td>{{car.model}} </td></tr>
+            <tr><td>{{car.year}}</td></tr>
+            <tr><td>{{car.yearOfBuying}}</td></tr>
+                	<tr><td>{{car.distanceTravelled}}</td></tr>
+                	<tr><td>{{baseSellingPrice}}</td></tr>
+    </table>
+
+    <highestBid> </highestBid>
+    <input type="button" name="Show All Bids" value="Show All Bids"(click)="allBids();">
+    <input type="button" name="Make Bid" value="Make Bid"(click)="makeBid();">
+    </div>
