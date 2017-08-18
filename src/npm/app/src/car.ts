@@ -4,12 +4,12 @@ export class Car{
     carId: number;
     make: string = "";
     model: string = "";
-    yearOfBuying: string = "";
+    yearOfBuying: number;
     distanceTravelled: number;
     baseSellingPrice: number;
-    entryDate: string = "";
+    entryDate: Date;
 
-    constructor(make: string, model: string, yearOfBuying: string, distanceTravelled: number, baseSellingPrice: number) {
+    constructor(make: string, model: string, yearOfBuying: number, distanceTravelled: number, baseSellingPrice: number) {
         this.make = make;
         this.model = model;
         this.yearOfBuying = yearOfBuying;

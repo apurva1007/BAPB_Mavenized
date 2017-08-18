@@ -40,6 +40,10 @@ public class CarDAO {
 
     }
 
+    public Collection<Car> getCars(String field, String fieldValue) {
+        return (entityManager.createQuery("from Car where "+field+"='"+fieldValue+"'")).getResultList();
+    }
+
     public void delete(int carId) {
         Car car = entityManager.find(Car.class,carId);
         entityManager.remove(car);
