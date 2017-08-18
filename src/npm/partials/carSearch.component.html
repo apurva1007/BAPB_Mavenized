@@ -3,8 +3,8 @@
 	    <h2> Search Car By :</h2><br/>
 	    <select name="searchField" [(ngModel)]="searchField">
 	      <option value=''>--Select--</option>
-	      <option value='Make'>Make</option>
-	      <option value='Model'>Model</option>
+	      <option value='make'>Make</option>
+	      <option value='model'>Model</option>
 	    </select>
 	    <input type="text" placeholder="Enter {{searchField}}" [(ngModel)]="searchFieldValue"/><br/>  
 	    <input type='button' value='Search' (click)='searchCars();' />

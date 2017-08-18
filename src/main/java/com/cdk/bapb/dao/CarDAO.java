@@ -41,11 +41,15 @@ public class CarDAO {
     }
 
     public Collection<Car> getCars(String field, String fieldValue) {
-        return (entityManager.createQuery("from Car where "+field+"='"+fieldValue+"'")).getResultList();
+        return (entityManager.createQuery("from Car where "+field+"='"+fieldValue+"' and available = true")).getResultList();
     }
 
     public void delete(int carId) {
         Car car = entityManager.find(Car.class,carId);
         entityManager.remove(car);
+    }
+
+    public Collection<Car> getAvailableCars() {
+        return entityManager.createQuery("from Car where available = true").getResultList();
     }
 }

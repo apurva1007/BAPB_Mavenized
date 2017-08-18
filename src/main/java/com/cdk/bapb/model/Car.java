@@ -1,11 +1,6 @@
 package com.cdk.bapb.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -15,29 +10,25 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int carId;
-
     private String make;
-
     private String model;
-
     private int yearOfBuying;
-
     private int distanceTravelled;
-
     private double baseSellingPrice;
-
-    private Timestamp entryDate;
+    private Date entryDate;
+    private boolean available = true;
 
     public Car() {
     }
 
-    public Car(String make, String model, int yearOfBuying, int distanceTravelled, double baseSellingPrice, Timestamp entryDate) {
+    public Car(String make, String model, int yearOfBuying, int distanceTravelled, double baseSellingPrice, Date entryDate, boolean available) {
         this.make = make;
         this.model = model;
         this.yearOfBuying = yearOfBuying;
         this.distanceTravelled = distanceTravelled;
         this.baseSellingPrice = baseSellingPrice;
         this.entryDate = entryDate;
+        this.available = available;
     }
 
     public int getCarId() {
@@ -88,11 +79,11 @@ public class Car {
         this.baseSellingPrice = baseSellingPrice;
     }
 
-    public Timestamp getEntryDate() {
+    public Date getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Timestamp entryDate) {
+    public void setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
     }
 
@@ -107,5 +98,13 @@ public class Car {
                 ", baseSellingPrice=" + baseSellingPrice +
                 ", entryDate=" + entryDate +
                 '}';
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 }

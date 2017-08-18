@@ -56,6 +56,11 @@ public class CarResourceController {
         return carService.readAll();
     }
 
+    @RequestMapping(value = "/rest/allAvailableCars",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public Collection<Car> readAllAvailableCarsAsJson(){
+        return carService.readAllAvailable();
+    }
+
     @RequestMapping(value = "/rest/car/{carId}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
     public Car readById(@PathVariable int carId){
         System.out.println("VIN is : "+carId);
@@ -64,7 +69,7 @@ public class CarResourceController {
         return car;
     }
 
-    @RequestMapping(value = "/car/{field}/{fieldValue}",produces = "application/json" ,method = RequestMethod.GET)
+    @RequestMapping(value = "rest/car/{field}/{fieldValue}",produces = "application/json" ,method = RequestMethod.GET)
     public Collection<Car> readCarsAsJson(@PathVariable String field,@PathVariable String fieldValue){
         return carService.readCars(field,fieldValue);
     }

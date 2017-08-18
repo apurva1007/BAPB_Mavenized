@@ -17,7 +17,7 @@ export class AddCarComponent{
 
 
     constructor(private http:Http) {
-        this.car = new Car("", "", null, null, null );
+        this.car = new Car("", "", null, null, null, true);
     }
 
     addCar() {

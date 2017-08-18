@@ -22,7 +22,6 @@ public class CarService {
 
     @Transactional
     public int add(Car car) throws Exception {
-        car.setEntryDate(new Timestamp(System.currentTimeMillis()));
         return carDAO.save(car);
     }
 
@@ -53,4 +52,7 @@ public class CarService {
         repo.delete(carId);
     }
 
+    public Collection<Car> readAllAvailable() {
+        return carDAO.getAvailableCars();
+    }
 }
