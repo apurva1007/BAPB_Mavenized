@@ -1,0 +1,21 @@
+<div class = 'form'>
+    <form name="bidForm" #carForm="ngForm">
+    <div *ngIf="successMessage" [ngClass] = "'success'"> {{bid.bidId}} Added. </div>
+    <div *ngIf="errorMessage" [ngClass] = "'error'"> {{errorMessage}} </div>
+    <h1>Add Bid</h1>
+    <!--<label for="title">Make</label>
+    <input type="text" id="title" required minlength="3" maxlength="20" [(ngModel)]="car.make" name="make" #make="ngModel">
+    <div *ngIf="make.errors && (make.dirty || make.touched)" class="alert alert-danger">
+        <div [hidden]="!make.errors.required">
+            Car make is required!
+        </div>
+    </div>
+    -->
+
+    Price: <input type='text' [(ngModel)]='bid.biddingPrice' name="biddingPrice" /><br/>
+    userId: <input type='text' [(ngModel)]='bid.userId' name="userId" /><br/>
+    carId: <input type='text' [(ngModel)]='bid.carId' name="carId" /><br/>
+    <input type='button' value='Add' (click)='addBid();' />
+
+    </form>
+</div>
