@@ -14,7 +14,7 @@ export class CarDetailsComponent  implements  OnInit{
 
     imageUrl=['../images/'+this.id];
     constructor(private activatedRoute:ActivatedRoute,private router:Router,private http:Http){
-        this.car = new Car("", "", null, null, null );
+        this.car = new Car("", "", null, null, null,true );
         this.activatedRoute.params.subscribe((prms)=>{
             this.id = parseInt(prms['carId']);
         });
