@@ -26,9 +26,9 @@ public class BidResourceController {
         return "Bid with Bid Id '"+value+" ' added successfully!";
     }
 
-    @RequestMapping(value = "/rest/bid/highestBidder",produces ="application/json",method = RequestMethod.GET)
-    public Bid readHighestBid(@RequestBody int carId) {
-        Bid bid = readHighestBid(carId);
+    @RequestMapping(value = "/rest/highestbid/{carId}",produces ="application/json",method = RequestMethod.GET)
+    public Bid readHighestBid(@PathVariable int carId) {
+        Bid bid = bidService.readHighestBid(carId);
         return bid;
         /*
     @RequestMapping(value = "/rest/bid/highestBidder",consumes ="application/json" ,method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class BidResourceController {
     }
 
     @RequestMapping(value = "/rest/bid/{carId}",produces ="application/json" ,method = RequestMethod.GET)
-    public Collection<Bid> readAllBidsWithCarId(@RequestBody int carId) {
+    public Collection<Bid> readAllBidsWithCarId(@PathVariable int carId) {
         return bidService.readBidsByCar(carId);
     }
 }

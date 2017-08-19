@@ -9,7 +9,7 @@ import {Car} from "./car";
 import {Observable} from "rxjs/Observable";
 
 @Component({
-    selector:'makeBid',
+    selector:'addBid',
     templateUrl:'../partials/addbid.component.html',
     styleUrls:['../css/form.component.css'],
 })

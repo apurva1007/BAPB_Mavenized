@@ -37,7 +37,6 @@ export class CarDetailsComponent  implements  OnInit{
         var options = new RequestOptions({headers: requestHeaders});
 
         this.http.get(searchURL, options).subscribe(res => this.car = res.json());
-        console.log(this.car);
     }
 
 

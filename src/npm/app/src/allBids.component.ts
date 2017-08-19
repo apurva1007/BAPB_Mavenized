@@ -16,10 +16,11 @@ export class AllBidsComponent implements OnInit{
         this.activatedRoute.params.subscribe((prms)=>{
             this.id = parseInt(prms['carId']);
         });
+
     }
 
     ngOnInit(){
-        var getURL= "http://localhost:8080/rest/car/"+this.id;
+        var getURL= "http://localhost:8080/rest/bid/"+this.id;
 
         var requestHeaders = new Headers({'Accept': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});

@@ -8,9 +8,9 @@
                 <tbody>
                 <tr *ngFor="let bid of bids">
                         
-                          <td>{{bid.biddingDate}} {{car.model}}</td>
+                          <td>{{bid.biddingDate}}</td>
                           <td>{{bid.biddingPrice}}</td>
-                          <td>{{bid.user}}</td>
+                          <td>{{bid.user.name}}</td>
     </tr>
     </tbody>
     </table>

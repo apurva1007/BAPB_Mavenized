@@ -25,7 +25,7 @@ public class TransactionDAO {
     }
 
     public Collection<Transaction> getAllTransactions() {
-        return (entityManager.createQuery("select * from transactions")).getResultList();
+        return (entityManager.createQuery("from Transaction")).getResultList();
     }
 
 }

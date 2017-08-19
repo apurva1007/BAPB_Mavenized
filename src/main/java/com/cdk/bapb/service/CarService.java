@@ -25,10 +25,7 @@ public class CarService {
         return carDAO.save(car);
     }
 
-    @Transactional
-    public int modify(Car car) {
-        return carDAO.update(car);
-    }
+
 
     @Transactional
     public Car readById(int carId) {
@@ -47,10 +44,6 @@ public class CarService {
 
     }
 
-    @Transactional
-    public void remove(int carId) {
-        repo.delete(carId);
-    }
 
     public Collection<Car> readAllAvailable() {
         return carDAO.getAvailableCars();

@@ -44,12 +44,6 @@ public class CarResourceController {
         return "Car with vin '"+value+" ' added successfully!";
     }
 
-    @RequestMapping(value = "/rest/update/{carId}",consumes = APPLICATION_JSON_VALUE ,method = RequestMethod.PUT)
-    public String updateCar(@RequestBody Car car, @PathVariable int carId){
-        car.setCarId(carId);
-        int value = carService.modify(car);
-        return "Car with vin '"+value+" ' resource updated successfully!";
-    }
 
     @RequestMapping(value = "/rest/allCars",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
     public Collection<Car> readAllCarsAsJson(){
@@ -74,9 +68,4 @@ public class CarResourceController {
         return carService.readCars(field,fieldValue);
     }
 
-    @RequestMapping(value = "/rest/delete/{carId}", method = RequestMethod.DELETE)
-    public String deleteCar(@PathVariable int carId){
-        carService.remove(carId);
-        return "Car with vin '"+carId+"'resource deleted successfully!";
-    }
 }

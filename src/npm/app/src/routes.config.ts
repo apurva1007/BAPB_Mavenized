@@ -6,16 +6,17 @@ import {CarDetailsComponent} from "./carDetails.component";
 import {SearchCarComponent} from "./carSearch.component";
 import {AddBidComponent} from "./addBid.component";
 import {AllBidsComponent} from "./allBids.component";
+import {ShowSoldCarsComponent} from "./showSoldCars.component";
 
 let routes:Routes = [
     {path:'home',component:HomeComponent},
     {path:'register',component:RegisterComponent},
     {path:'addCar',component:AddCarComponent},
-    {path:'makeBid',component:AddBidComponent},
     {path:'search',component:SearchCarComponent},
     {path:'carDetails/:carId',component:CarDetailsComponent},
     {path:'addBid/:carId',component:AddBidComponent},
     {path:'allBids/:carId',component:AllBidsComponent},
+    {path:'showSold',component:ShowSoldCarsComponent},
     {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 
