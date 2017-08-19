@@ -61,6 +61,9 @@ public class CarService {
         Date lastBidDate = new Date(add);
         return (lastBidDate.getTime() - new Date().getTime())/ (1000 * 60 * 60 * 24)+1;
     }
+    public Collection<String> readOptions(String column) {
+        return carDAO.getOptions(column);
+    }
 
     public Collection<Car> readAllAvailable() {
         return carDAO.getAvailableCars();

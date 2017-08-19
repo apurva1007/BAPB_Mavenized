@@ -44,6 +44,10 @@ public class CarResourceController {
         return "Car with vin '"+value+" ' added successfully!";
     }
 
+    @RequestMapping(value = "/rest/getOptions/{column}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public Collection<String> readOptions(@PathVariable String column){
+        return carService.readOptions(column);
+    }
 
     @RequestMapping(value = "/rest/allCars",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
     public Collection<Car> readAllCarsAsJson(){

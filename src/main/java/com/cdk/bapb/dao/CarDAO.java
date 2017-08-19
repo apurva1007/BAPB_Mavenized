@@ -39,6 +39,10 @@ public class CarDAO {
 
     }
 
+    public Collection<String> getOptions(String column) {
+        return entityManager.createQuery("select "+ column + " from Car").getResultList();
+    }
+
     public Collection<Car> getCars(String field, String fieldValue) {
         return (entityManager.createQuery("from Car where "+field+"='"+fieldValue+"' and available = true")).getResultList();
     }

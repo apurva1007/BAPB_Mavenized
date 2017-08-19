@@ -12,6 +12,11 @@
     font-size: 20px;
 }
 
+.heading {
+    color: #4CAF50;
+    font-size: 40px;
+}
+
 .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
 }

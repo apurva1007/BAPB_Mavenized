@@ -4,30 +4,24 @@ import {Transaction} from "./transaction";
 @Component({
     selector:'showSold',
     template:`<div>
-        <h2> All Sold Cars </h2>
-        <table>
-                    <thead>
-                    <tr>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Base Selling Price</th>
-            <th>Bidding Price</th>
-            <th>Sold to</th>
-        </tr>
-                </thead>
-                    <tbody>
-                    <tr *ngFor="let trans of transactions">
-                            
-                              <td>{{trans.bid.car.make}}</td>
-                              <td>{{trans.bid.car.model}}</td>
-                              <td>{{trans.bid.car.baseSellingPrice}}</td>
-            <td>{{trans.bid.biddingPrice}}</td>
-            <td>{{trans.bid.user.name}}</td>
-        </tr>
-        </tbody>
+        <h1 class="heading"> All Sold Cars </h1>
+        <table class="gridtable">
+            <tr *ngIf="transactions">
+                <th>Make</th><th>Model</th><th>Base Selling Price</th><th>Bidding Price</th><th>Sold to</th>
+            </tr>
+            <tr *ngFor="let trans of transactions">
+                <td>{{trans.bid.car.make}}</td>
+                <td>{{trans.bid.car.model}}</td>
+                <td>{{trans.bid.car.baseSellingPrice}}</td>
+                <td>{{trans.bid.biddingPrice}}</td>
+                <td>{{trans.bid.user.name}}</td>
+            </tr>
         </table>
+        
     </div>`,
-    styleUrls:['../css/form.component.css'],
+
+
+    styleUrls:['../css/table.component.styles.css','../css/common.styles.css'],
 })
 export class ShowSoldCarsComponent implements OnInit{
 

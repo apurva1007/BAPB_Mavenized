@@ -1,8 +1,9 @@
+<!--
 <div>
 	    <h1>BAPBiders</h1><br>
 	    <h2> Search Car By :</h2><br/>
 	    <select name="searchField" [(ngModel)]="searchField">
-	      <option value=''>--Select--</option>
+	      <option value=''>&#45;&#45;Select&#45;&#45;</option>
 	      <option value='make'>Make</option>
 	      <option value='model'>Model</option>
 	    </select>
@@ -24,4 +25,34 @@
             </tr>
         </tbody>
     		</table>
-	    </div>
+	    </div>-->
+
+<div class="search">
+	<h1 class="heading">Search Cars:</h1><br/>
+	    <select name="searchField" [(ngModel)]="searchField" (ngModelChange)="getAvailableOptions(searchField)">
+	      <option value=''>--Select--</option>
+	      <option value='make'>Make</option>
+	      <option value='model'>Model</option>
+	    </select>
+	<select name="searchFieldValue" [(ngModel)]="searchFieldValue">
+		<option value=''>--Select--</option>
+		      <option *ngFor="let option of options" value = {{option}}>{{option}}</option>
+	</select>
+	<!--    <input type="text" placeholder="Enter {{searchField}}" [(ngModel)]="searchFieldValue"/><br/>  -->
+	    <input type='button' value='Search' (click)='searchCars();' />
+	<hr>
+	<table class="gridtable">
+
+		<tr *ngIf="cars">
+			<th>Name</th><th>Year</th><th>Distance Travelled</th><th>Base Price</th><th>Link</th>
+		</tr>
+
+		<tr *ngFor="let car of cars">
+			<td>{{car.make}} {{car.model}}</td>
+			<td>{{car.yearOfBuying}}</td>
+			<td>{{car.distanceTravelled}}</td>
+			<td>{{car.baseSellingPrice}}</td>
+			<td><a [routerLink]="['/carDetails', car.carId]" >Show More</a></td>
+		</tr>
+	</table>
+</div>

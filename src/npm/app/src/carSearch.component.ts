@@ -5,7 +5,8 @@ import {Car} from "./car";
 
 @Component({
 	selector:'search',
-	templateUrl:'../partials/carSearch.component.html'
+	templateUrl:'../partials/carSearch.component.html',
+    styleUrls:['../css/table.component.styles.css'],
 })
 
 
@@ -14,6 +15,7 @@ import {Car} from "./car";
 export class SearchCarComponent implements  OnInit{
 	
 	cars:Car[];
+	options: String[];
 	searchField:string = "";
     searchFieldValue:string = "";
 
@@ -25,6 +27,15 @@ export class SearchCarComponent implements  OnInit{
 
     ngOnInit(){
 
+    }
+
+    getAvailableOptions(column: string){
+        console.log(column);
+        let getUrl = "http://localhost:8080/rest/getOptions/"+column;
+        var requestHeaders = new Headers({'Accept': 'application/json'});
+        var options = new RequestOptions({headers: requestHeaders});
+
+        this.http.get(getUrl, options).subscribe(res => this.options = res.json());
     }
 
     searchCars() {
