@@ -1,3 +1,4 @@
 <div>
-    <p>Highest Bid for this car is : {{bid.biddingPrice}}</p>
+    <p *ngIf="bid"> Be the first one to bid</p>
+    <p *ngIf="!bid">Highest Bid for this car is: {{bid.biddingPrice}}</p>
 </div>

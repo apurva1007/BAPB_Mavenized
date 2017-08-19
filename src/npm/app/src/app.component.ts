@@ -3,21 +3,10 @@ import { Router } from '@angular/router';
 
 @Component({
     selector:'bapb-app',
-    template:`<div>
-        <div class="topnav" id="myTopnav">
-            <h1>{{title}}</h1>
-            <input class="button" type="button" value="Register User" (click)="register();" />
-            <input class="button" type="button" value="Add Your Car" (click)="addCar();" />
-            <input class="button" type="button" value="Search Car" (click)="search();" />
-            <input class="button" type="button" value="Sold Cars" (click)="show();" />
-        </div>
-       	<router-outlet></router-outlet>      
-    </div>`,
+    templateUrl:'../partials/app.component.html',
     styleUrls:['../css/top.navigation.component.css']
 })
 export class AppComponent{
-
-    title:string ="BAP Bidders";
 
     constructor(private router:Router){}
 
@@ -39,6 +28,11 @@ export class AppComponent{
     show(){
         var showLink =['/showSold'];
         this.router.navigate(showLink);
+    }
+
+    home(){
+        var link =[''];
+        this.router.navigate(link);
     }
 
 }

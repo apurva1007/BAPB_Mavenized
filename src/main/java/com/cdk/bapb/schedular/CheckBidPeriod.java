@@ -5,6 +5,8 @@ import com.cdk.bapb.dao.CarDAO;
 import com.cdk.bapb.model.Bid;
 import com.cdk.bapb.model.Car;
 import com.cdk.bapb.model.Transaction;
+import com.cdk.bapb.service.BidService;
+import com.cdk.bapb.service.CarService;
 import com.cdk.bapb.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -21,7 +23,15 @@ public class CheckBidPeriod {
     @Autowired
     BidDAO bidDAO;
 
+    @Autowired
     TransactionService transactionService;
+
+    @Autowired
+    CarService carService;
+
+    @Autowired
+    BidService bidService;
+
 
     @Scheduled(fixedRate = 10000)
     public void checkBidCompleted() {
@@ -31,8 +41,14 @@ public class CheckBidPeriod {
         Iterator<Car> itr = cars.iterator();
         while (itr.hasNext()) {
             Car currentCar= itr.next();
-            if(new Date().getTime()-currentCar.getEntryDate().getTime()==20) {
+           if(carService.readRemainingDays(currentCar.getCarId()) == 0) {
+                if(bidService.readBidsByCar(currentCar.getCarId()).size() == 0){
+                    currentCar.setBiddingPeriod(currentCar.getBiddingPeriod() + 10);
+                    carService.update(currentCar);
+                    break;
+                }
                 currentCar.setAvailable(false);
+                carService.update(currentCar);
                 Bid highestBid=bidDAO.getHighestBid(currentCar.getCarId());
                 transactionService.save(highestBid);
 

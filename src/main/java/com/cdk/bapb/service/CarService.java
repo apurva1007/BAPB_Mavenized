@@ -9,10 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class CarService {
+
+    BidService bidService;
 
     @Autowired
     CarDAO carDAO;
@@ -25,7 +28,10 @@ public class CarService {
         return carDAO.save(car);
     }
 
-
+    @Transactional
+    public void update(Car car){
+        carDAO.update(car);
+    }
 
     @Transactional
     public Car readById(int carId) {
@@ -44,6 +50,17 @@ public class CarService {
 
     }
 
+    public long readRemainingDays(int carId){
+        System.out.println("hellloooo");
+        Car car = repo.findOne(carId);
+        System.out.println(car);
+        /*if(bidService.readBidsByCar(car.getCarId()).size() == 0){
+            biddingPeriod = biddingPeriod + 10;
+        }*/
+        long add = car.getEntryDate().getTime() + car.getBiddingPeriod()*24*60*60*1000;
+        Date lastBidDate = new Date(add);
+        return (lastBidDate.getTime() - new Date().getTime())/ (1000 * 60 * 60 * 24)+1;
+    }
 
     public Collection<Car> readAllAvailable() {
         return carDAO.getAvailableCars();

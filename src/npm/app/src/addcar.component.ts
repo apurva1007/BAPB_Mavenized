@@ -17,7 +17,7 @@ export class AddCarComponent{
 
 
     constructor(private http:Http) {
-        this.car = new Car("", "", null, null, null, true);
+        this.car = new Car("", "", null, null, null,new Date(), true,20);
     }
 
     addCar() {
@@ -27,7 +27,6 @@ export class AddCarComponent{
         var requestHeaders = new Headers({'Content-Type': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
 
-        this.car.entryDate = new Date();
         this.http.post(addUrl, this.car, options).subscribe(
             res => {
                 this.successMessage = res.toString();

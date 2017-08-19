@@ -15,9 +15,8 @@ public class CarDAO {
     EntityManager entityManager;
 
 
-    public int update(Car car){
+    public void update(Car car){
         entityManager.merge(car);
-        return car.getCarId();
     }
 
     public int save(Car car) throws Exception {
@@ -44,12 +43,9 @@ public class CarDAO {
         return (entityManager.createQuery("from Car where "+field+"='"+fieldValue+"' and available = true")).getResultList();
     }
 
-    public void delete(int carId) {
-        Car car = entityManager.find(Car.class,carId);
-        entityManager.remove(car);
-    }
-
     public Collection<Car> getAvailableCars() {
         return entityManager.createQuery("from Car where available = true").getResultList();
     }
+
+
 }

@@ -17,8 +17,17 @@ public class Car {
     private double baseSellingPrice;
     private Date entryDate;
     private boolean available = true;
+    private int biddingPeriod =20;
 
     public Car() {
+    }
+
+    public int getBiddingPeriod() {
+        return biddingPeriod;
+    }
+
+    public void setBiddingPeriod(int biddingPeriod) {
+        this.biddingPeriod = biddingPeriod;
     }
 
     public Car(String make, String model, int yearOfBuying, int distanceTravelled, double baseSellingPrice, Date entryDate, boolean available) {
@@ -29,6 +38,7 @@ public class Car {
         this.baseSellingPrice = baseSellingPrice;
         this.entryDate = entryDate;
         this.available = available;
+        this.biddingPeriod = 20;
     }
 
     public int getCarId() {
@@ -97,6 +107,8 @@ public class Car {
                 ", distanceTravelled=" + distanceTravelled +
                 ", baseSellingPrice=" + baseSellingPrice +
                 ", entryDate=" + entryDate +
+                ", available=" + available +
+                ", biddingPeriod=" + biddingPeriod +
                 '}';
     }
 

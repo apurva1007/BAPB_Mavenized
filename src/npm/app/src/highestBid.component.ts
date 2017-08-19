@@ -26,6 +26,8 @@ export class HighestBidComponent {
         var options = new RequestOptions({headers: requestHeaders});
 
         this.http.get(getURL, options).subscribe(res => this.bid = res.json());
+
+
     }
 
 }

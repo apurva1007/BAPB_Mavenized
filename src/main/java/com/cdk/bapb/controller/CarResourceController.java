@@ -57,15 +57,18 @@ public class CarResourceController {
 
     @RequestMapping(value = "/rest/car/{carId}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
     public Car readById(@PathVariable int carId){
-        System.out.println("VIN is : "+carId);
         Car car = carService.readById(carId);
-        System.out.println("ReadbyId returns:" + car);
         return car;
     }
 
     @RequestMapping(value = "rest/car/{field}/{fieldValue}",produces = "application/json" ,method = RequestMethod.GET)
     public Collection<Car> readCarsAsJson(@PathVariable String field,@PathVariable String fieldValue){
         return carService.readCars(field,fieldValue);
+    }
+
+    @RequestMapping(value = "/rest/car/remainingDays/{carId}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public long getRemainingDays(@PathVariable int carId){
+        return carService.readRemainingDays(carId);
     }
 
 }

@@ -25,6 +25,9 @@ public class BidDAO {
 
     public Bid getHighestBid(int carId ) {
         List<Bid> list = (entityManager.createQuery("from Bid where biddingPrice = (select max(biddingPrice) from Bid where car.carId="+carId+")").getResultList());
+        if(list.size()==0){
+            return null;
+        }
         Bid bid = list.get(0);
         return bid;
     }
