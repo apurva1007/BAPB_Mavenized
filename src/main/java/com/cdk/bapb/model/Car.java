@@ -41,6 +41,20 @@ public class Car {
         this.biddingPeriod = 20;
     }
 
+    public Car(int carId,String make, String model, int yearOfBuying, int distanceTravelled, double baseSellingPrice, Date entryDate, boolean available) {
+        this.carId=carId;
+        this.make = make;
+        this.model = model;
+        this.yearOfBuying = yearOfBuying;
+        this.distanceTravelled = distanceTravelled;
+        this.baseSellingPrice = baseSellingPrice;
+        this.entryDate = entryDate;
+        this.available = available;
+    }
+
+
+
+
     public int getCarId() {
         return carId;
     }

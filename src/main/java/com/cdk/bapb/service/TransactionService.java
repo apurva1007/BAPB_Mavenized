@@ -16,11 +16,14 @@ public class TransactionService {
     TransactionDAO transactionDAO;
 
     @Transactional
-    public void save(Bid highestBid){  transactionDAO.addTransaction(highestBid); }
+    public int save(Bid highestBid){  return transactionDAO.addTransaction(highestBid); }
 
     @Transactional
     public Collection<Transaction> readAllTransactions () {
         return transactionDAO.getAllTransactions();
     }
 
+    public TransactionDAO getTransactionDAO(TransactionDAO transactionDAO) {
+        return this.transactionDAO = transactionDAO;
+    }
 }

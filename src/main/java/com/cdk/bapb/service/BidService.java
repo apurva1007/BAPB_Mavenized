@@ -18,11 +18,16 @@ public class BidService {
     public int save(Bid bid){ return bidDAO.save(bid); }
 
     @Transactional
-    public Bid readHighestBid(int carId ) {return bidDAO.getHighestBid(carId);}
+    public Bid readHighestBid(int carId) {
+        return bidDAO.getHighestBid(carId);
+    }
 
     @Transactional
     public Collection<Bid> readBidsByCar(int carId) { return bidDAO.getBidsByCarId(carId);}
 
 
+    public void setBidDAO(BidDAO bidDAO) {
+        this.bidDAO = bidDAO;
+    }
 }
 

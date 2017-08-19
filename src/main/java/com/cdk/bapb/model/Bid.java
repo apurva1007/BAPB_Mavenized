@@ -29,6 +29,14 @@ public class Bid {
         this.car = car;
     }
 
+    public Bid(int bidId,double biddingPrice, Date biddingDate, User user, Car car) {
+        this.bidId=bidId;
+        this.biddingPrice = biddingPrice;
+        this.biddingDate = biddingDate;
+        this.user = user;
+        this.car = car;
+    }
+
     public int getBidId() {
         return bidId;
     }

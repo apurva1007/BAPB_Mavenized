@@ -23,6 +23,10 @@ public class CarService {
     @Autowired
     CarRepository repo;
 
+    public void setCarDAO(CarDAO carDAO) {
+        this.carDAO = carDAO;
+    }
+
     @Transactional
     public int add(Car car) throws Exception {
         return carDAO.save(car);
@@ -68,4 +72,6 @@ public class CarService {
     public Collection<Car> readAllAvailable() {
         return carDAO.getAvailableCars();
     }
+
+
 }

@@ -31,4 +31,8 @@ public class UserService {
     public void remove(int uid) {
         userDAO.delete(uid);
     }
+
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 }
