@@ -30,13 +30,6 @@ public class BidResourceController {
     public Bid readHighestBid(@PathVariable int carId) {
         Bid bid = bidService.readHighestBid(carId);
         return bid;
-        /*
-    @RequestMapping(value = "/rest/bid/highestBidder",consumes ="application/json" ,method = RequestMethod.POST)
-    public String readHighestBid(@RequestBody int carId) {
-        Collection<Bid> highestBidder = bidService.readHighestBid(carId);
-        System.out.println("====================");
-        return "Highest bidder for" + carId + "is : \n \t" + highestBidder ;
-    }*/
     }
 
     @RequestMapping(value = "/rest/bid/{carId}",produces ="application/json" ,method = RequestMethod.GET)

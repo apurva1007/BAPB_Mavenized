@@ -11,13 +11,12 @@ import {SearchCarComponent} from "./carSearch.component";
 import {CarDetailsComponent} from "./carDetails.component";
 import {AddBidComponent} from "./addBid.component";
 import {AllBidsComponent} from "./allBids.component";
-import {HighestBidComponent} from "./highestBid.component";
 import {ShowSoldCarsComponent} from "./showSoldCars.component";
 
 
 @NgModule({
 	imports:[BrowserModule,FormsModule,HttpModule,configuredRoutes],
-	declarations:[AddCarComponent,AppComponent,HomeComponent,RegisterComponent,SearchCarComponent,CarDetailsComponent, AddBidComponent,AllBidsComponent,ShowSoldCarsComponent,HighestBidComponent],
+	declarations:[AddCarComponent,AppComponent,HomeComponent,RegisterComponent,SearchCarComponent,CarDetailsComponent, AddBidComponent,AllBidsComponent,ShowSoldCarsComponent],
 	bootstrap:[AppComponent]
 })
 export class AppModule{

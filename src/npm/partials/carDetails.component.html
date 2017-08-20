@@ -1,5 +1,5 @@
 <div>
-        <!--<img width="100" height="100" [src]="">-->
+        <img width="500" height="300" [src]="imageUrl">
         <table class="carDetails">
         <tr>
             <td>Make</td><td>{{car.make}}</td>
@@ -9,10 +9,11 @@
                 	<tr><td>Distance Travelled</td><td>{{car.distanceTravelled}}</td></tr>
                 	<tr><td>Base Selling Price</td><td>{{car.baseSellingPrice}}</td></tr>
             <tr><td>Remaining Days of Bidding</td><td>{{remainingDaysOfBidding}}</td></tr>
+            <tr><td *ngIf="!bid"> Be the first one to bid</td></tr>
+            <tr><td *ngIf="bid">Highest Bid for this car is: {{bid.biddingPrice}}</td></tr>
 
     </table>
 
-    <highestBid> </highestBid>
-    <input type="button" name="Show All Bids" value="Show All Bids"(click)="allBids();">
+    <input type="button" *ngIf="bid" name="Show All Bids" value="Show All Bids"(click)="allBids();">
     <input type="button" name="Make Bid" value="Make Bid"(click)="makeBid();">
     </div>

@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {Car} from "./car";
 import {Http,Headers, RequestOptions} from "@angular/http";
 import { DatePipe } from '@angular/common';
+import {Bid} from "./bid";
 
 @Component({
     selector:'carDetails',
@@ -13,16 +14,19 @@ export class CarDetailsComponent  implements  OnInit{
     car:Car;
     id:number;
     remainingDaysOfBidding: number;
+    imageUrl:string;
+    bid:Bid;
 
 
 
-    imageUrl=['../images/'+this.id];
     constructor(private activatedRoute:ActivatedRoute,private router:Router,private http:Http){
         this.car = new Car("", "", null, null, null,null,true,20);
         this.activatedRoute.params.subscribe((prms)=>{
             this.id = parseInt(prms['carId']);
         });
+        this.imageUrl= "../images/image"+this.id+".jpg";
     }
+
 
 
     allBids(){
@@ -50,7 +54,13 @@ export class CarDetailsComponent  implements  OnInit{
             this.remainingDaysOfBidding = res.json();
         });
 
+        var getURL= "http://localhost:8080/rest/highestbid/"+this.id;
 
+        var requestHeaders = new Headers({'Accept': 'application/json'});
+        var options = new RequestOptions({headers: requestHeaders});
+
+        this.http.get(getURL, options).subscribe(res => this.bid = res.json());
+        console.log(this.bid);
     }
 
 }
