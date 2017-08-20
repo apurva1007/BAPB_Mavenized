@@ -30,11 +30,22 @@ public class UserResourceController {
     }
 
     @RequestMapping(value = "/rest/user/{uid}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
-    public User readCarByUidAsJson(@PathVariable Integer uid){
+    public User readUserByUidAsJson(@PathVariable Integer uid){
         System.out.println("Uid is : "+uid);
         User user = userService.readByUid(uid);
         System.out.println("User read by id returns: " + user);
         return user;
+    }
+
+    @RequestMapping(value = "/rest/isUser/{uid}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public Boolean isUser(@PathVariable Integer uid){
+        System.out.println("Uid is : "+uid);
+        User user = userService.readByUid(uid);
+        System.out.println("User read by id returns: " + user);
+        if(user!=null)
+            return true;
+        else
+            return false;
     }
 
     @RequestMapping(value = "/rest/delete/{uid}",produces = TEXT_PLAIN_VALUE ,method = RequestMethod.DELETE)
@@ -45,7 +56,12 @@ public class UserResourceController {
 
     @RequestMapping(value = "/rest/search/{name}/{phone}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
     public Boolean searchUser(@PathVariable String name,@PathVariable String phone){
-        return userService.searchByNameAndPhone(name,phone);
+        System.out.println(userService.searchByNameAndPhone(name,phone));
+        User user = userService.searchByNameAndPhone(name,phone);
+        if (user == null)
+            return false;
+        else
+            return true;
     }
 
 }

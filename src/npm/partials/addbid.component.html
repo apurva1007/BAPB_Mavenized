@@ -3,14 +3,6 @@
         <div *ngIf="successMessage" [ngClass] = "'success'"> {{bid.bidId}} Added. </div>
         <div *ngIf="errorMessage" [ngClass] = "'error'"> {{errorMessage}} </div>
         <h1>Add Bid</h1>
-        <!--<label for="title">Make</label>
-        <input type="text" id="title" required minlength="3" maxlength="20" [(ngModel)]="car.make" name="make" #make="ngModel">
-        <div *ngIf="make.errors && (make.dirty || make.touched)" class="alert alert-danger">
-            <div [hidden]="!make.errors.required">
-                Car make is required!
-            </div>
-        </div>
-        -->
 
         Price: <input type='number' [(ngModel)]='bid.biddingPrice' name="biddingPrice" required #biddingPrice="ngModel"/>
         <div *ngIf="biddingPrice.errors && (biddingPrice.dirty || biddingPrice.touched)" class="alert alert-danger">
@@ -18,12 +10,8 @@
                 Required!
             </div>
         </div>
-        userId: <input type='number' [(ngModel)]='bid.userId' name="userId" required #userId="ngModel"/>
-                <div *ngIf="userId.errors && (userId.dirty || userId.touched)" class="alert alert-danger">
-                    <div [hidden]="!userId.errors.required">
-                        Required!
-                    </div>
-                </div>
+        userId: <input type='number' [(ngModel)]='userId' name="userId"/>
+
         <br/>
         <input type='button' value='Add' (click)='makeBid();' />
 
