@@ -10,29 +10,4 @@ export class AppComponent{
 
     constructor(private router:Router){}
 
-    // register(){
-    //     var registerLink =['/register'];
-    //     this.router.navigate(registerLink);
-    // }
-    //
-    // addCar(){
-    //     var addCarLink =['/addCar'];
-    //     this.router.navigate(addCarLink);
-    // }
-    //
-    // search(){
-    //     var searchLink =['/search'];
-    //     this.router.navigate(searchLink);
-    // }
-    //
-    // show(){
-    //     var showLink =['/showSold'];
-    //     this.router.navigate(showLink);
-    // }
-
-    home(){
-        var link =[''];
-        this.router.navigate(link);
-    }
-
 }

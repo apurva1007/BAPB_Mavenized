@@ -1,24 +1,21 @@
 <div>
     <div class="topnav" id="myTopnav">
-        <button class ="asText"(click)="home();"><h1 class="bapb">BAP Bidders</h1></button>
+        <h1 class="bapb">BAP Bidders</h1>
         <p class="marquee"><span>ONE... TWO... anddd..... SOLD !!!!</span></p>
-        <ul>
-            <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">User Services</a>
+    </div>
+    <ul>
+        <li class="dropdown"> <a class="dropbtn" routerLink=""><img src="../images/home.png" width="40" height="40"></a></li>
+        <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">User Services</a>
             <div class="dropdown-content"><a routerLink="/register">New Registration</a>
                 <a routerLink="/search">Search Cars</a>
             </div>
-            </li>
-            <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Admin Services</a>
-                <div class="dropdown-content"><a routerLink="/addCar">Add New Car</a>
-                    <a routerLink="/showSold">All Sold Cars</a>
-                </div>
-            </li>
-        </ul>
-        <!--<input class="button" type="button" value="Register User" (click)="register();" />-->
-        <!--<input class="button" type="button" value="Add Your Car" (click)="addCar();" />-->
-        <!--<input class="button" type="button" value="Search Car" (click)="search();" />-->
-        <!--<input class="button" type="button" value="Sold Cars" (click)="show();" />-->
-    </div>
+        </li>
+        <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Admin Services</a>
+            <div class="dropdown-content"><a routerLink="/addCar">Add New Car</a>
+            </div>
+        </li>
+        <li class="dropdown"><a class="dropbtn" routerLink="/showSold">All SOld Cars</a></li>
+    </ul>
     <router-outlet></router-outlet>
 
 

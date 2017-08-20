@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Http,Headers,RequestOptions} from "@angular/http";
 import {ActivatedRoute} from '@angular/router';
 
@@ -14,6 +14,8 @@ import {Observable} from "rxjs/Observable";
     styleUrls:['../css/form.component.css'],
 })
 export class AddBidComponent{
+
+
 
     title:string ="Make Bid";
     bid: Bid;

@@ -1,7 +1,7 @@
 @import "common.styles.css";
 
 .marquee{
-    width: 600px;
+    width: 1000px;
     margin: 0 auto;
     white-space: nowrap;
     overflow: hidden;
@@ -11,7 +11,7 @@
 }
 
 .marquee span{
-    display: inline-block;
+    display: block;
     padding-left: 100%;
     animation: marquee 15s linear infinite;
 }
@@ -43,6 +43,7 @@ li a, .dropbtn{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    margin: 0;
 }
 
 li a:hover, .dropdown:hover .dropbtn{
@@ -78,14 +79,6 @@ li.dropdown{
     display: block;
 }
 
-.asText{
-    background: none;
-    border: none;
-    margin: 0;
-    padding:0;
-    size: 50px;
-}
-
 .bapb{
     font-size: 50px;
     font-family: Impact;
@@ -103,9 +96,7 @@ li.dropdown{
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
-    font-size: 35px;
 }
 
 /* Style the links inside the navigation bar */
