@@ -12,6 +12,10 @@ public class UserService {
     @Autowired
     UserDAO userDAO;
 
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
     @Transactional
     public int add(User user){
         return userDAO.save(user);
@@ -32,7 +36,8 @@ public class UserService {
         userDAO.delete(uid);
     }
 
-    public void setUserDAO(UserDAO userDAO) {
-        this.userDAO = userDAO;
+    @Transactional
+    public Boolean searchByNameAndPhone(String name, String phone){
+       return userDAO.search(name,phone);
     }
 }

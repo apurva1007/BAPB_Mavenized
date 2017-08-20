@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 import {Bid} from "./bid";
 import {Car} from "./car";
 import {Observable} from "rxjs/Observable";
+import {User} from "./user";
 
 @Component({
     selector:'addBid',
@@ -23,7 +24,9 @@ export class AddBidComponent{
     errorMessage:string;
     carId: number;
     userId: number;
-    car:Car;
+    requestHeaders:Headers;
+    options:RequestOptions;
+    highestBid:Bid;
 
 
     constructor(private http:Http, private activatedRoute:ActivatedRoute) {
@@ -31,14 +34,20 @@ export class AddBidComponent{
         this.activatedRoute.params.subscribe((prms)=>{
             this.carId = parseInt(prms['carId']);
         });
+        this.requestHeaders = new Headers({'Content-Type': 'application/json'});
+        this.options = new RequestOptions({headers: this.requestHeaders});
+
+        // Observable.forkJoin(
+        //     this.getHighestBid()
+        // ).subscribe(res => {
+        //     console.log(res[0]);
+        //     this.highestBid= res[0];
+        //
+        // });
     }
 
     makeBid() {
         console.log("Inside addBid()!!!!");
-
-        var requestHeaders = new Headers({'Content-Type': 'application/json'});
-        var options = new RequestOptions({headers: requestHeaders});
-
         this.bid.biddingDate = new Date();
 
         Observable.forkJoin(
@@ -50,8 +59,13 @@ export class AddBidComponent{
             console.log(res[1]);
             this.bid.car = res[1];
 
+            // if (this.bid.biddingPrice < this.highestBid.biddingPrice){
+            //     console.log("hie");
+            //     this.errorMessage = "bidding price is less than current highestidding price of car.";
+            //     return;
+            // }
             let addUrl = "http://localhost:8080/rest/bid/add";
-            this.http.post(addUrl, this.bid, options).subscribe(
+            this.http.post(addUrl, this.bid, this.options).subscribe(
                 res => {
                     this.successMessage = res.toString();
                     console.log(res.text());
@@ -65,18 +79,21 @@ export class AddBidComponent{
     }
 
     getUser() {
-        var requestHeaders = new Headers({'Content-Type': 'application/json'});
-        var options = new RequestOptions({headers: requestHeaders});
         let getUserUrl = "http://localhost:8080/rest/user/"+this.userId;
-        return this.http.get(getUserUrl, options).map((res:any) => res.json());
+        return this.http.get(getUserUrl, this.options).map((res:any) => res.json());
     }
 
     getCar() {
-        var requestHeaders = new Headers({'Content-Type': 'application/json'});
-        var options = new RequestOptions({headers: requestHeaders});
         let getCarUrl = "http://localhost:8080/rest/car/"+this.carId;
-        return this.http.get(getCarUrl, options).map((res:any) => res.json());
+        return this.http.get(getCarUrl, this.options).map((res:any) => res.json());
     }
+
+    // getHighestBid(){
+    //     var getURL= "http://localhost:8080/rest/highestbid/"+this.carId;
+    //
+    //     return this.http.get(getURL, this.options).map((res:any) => res.json());
+    // }
+
 }
 
 

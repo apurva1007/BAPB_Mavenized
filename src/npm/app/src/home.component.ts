@@ -7,7 +7,7 @@ import {Component, OnInit} from "@angular/core";
 })
 export class HomeComponent {
 
-    title:string ="Welcome to BAP Bidders";
+    title:string ="Get the ";
 
     // slideIndex:number = 1;
     //

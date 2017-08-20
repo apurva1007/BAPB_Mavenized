@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Collection;
 
 @Repository
 public class UserDAO {
@@ -29,6 +30,14 @@ public class UserDAO {
     public void delete(int uid) {
         User user = entityManager.find(User.class,uid);
         entityManager.remove(user);
+    }
+
+    public Boolean search(String name, String phone){
+        if(entityManager.createQuery("from User where name = '"+name + "' and phone = '"+phone+"'") == null){
+            return false;
+        }
+        else
+            return true;
     }
 
 }

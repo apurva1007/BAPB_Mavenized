@@ -55,12 +55,7 @@ public class CarService {
     }
 
     public long readRemainingDays(int carId){
-        System.out.println("hellloooo");
         Car car = repo.findOne(carId);
-        System.out.println(car);
-        /*if(bidService.readBidsByCar(car.getCarId()).size() == 0){
-            biddingPeriod = biddingPeriod + 10;
-        }*/
         long add = car.getEntryDate().getTime() + car.getBiddingPeriod()*24*60*60*1000;
         Date lastBidDate = new Date(add);
         return (lastBidDate.getTime() - new Date().getTime())/ (1000 * 60 * 60 * 24)+1;

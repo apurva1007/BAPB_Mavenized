@@ -18,6 +18,7 @@ export class SearchCarComponent implements  OnInit{
 	options: String[];
 	searchField:string = "";
     searchFieldValue:string = "";
+    noOptions:string;
 
 
     constructor(private http:Http) {
@@ -53,6 +54,9 @@ export class SearchCarComponent implements  OnInit{
         var options = new RequestOptions({headers: requestHeaders});
 
         this.http.get(searchURL, options).subscribe(res => this.cars = res.json());
+        if(this.cars == null){
+            this.noOptions="No cars available right now. TRy something else.";
+        }
     }
 
 }

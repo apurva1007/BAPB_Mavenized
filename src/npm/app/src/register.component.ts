@@ -12,6 +12,7 @@ export class RegisterComponent{
     user:User;
     successMessage:string;
     errorMessage:string;
+    check:boolean;
 
     constructor(private http:Http) {
         this.user = new User("","");
@@ -20,20 +21,31 @@ export class RegisterComponent{
     register(){
         var requestHeaders = new Headers({'Content-Type': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
-        let addUrl = "http://localhost:8080/rest/addUser";
 
-        console.log(this.user.name);
-        console.log(this.user);
+        let searchUrl = "http://localhost:8080/rest/search/"+this.user.name + "/" + this.user.phone;
 
-        this.http.post(addUrl, this.user, options).subscribe(
-            res => {
-                this.successMessage = res.toString();
-                console.log(res.text());
-                this.errorMessage=""
-            },
-            error => {
-                this.errorMessage = <any>error;
-                this.successMessage = ""
-            });
-    }
+        this.http.get(searchUrl,options).subscribe(res => {
+            this.check= res.json();
+            console.log(this.check);
+            if(this.check == true){
+                this.errorMessage = "user already exists";
+                return;
+            }
+            else{
+                let addUrl = "http://localhost:8080/rest/addUser";
+                this.http.post(addUrl, this.user, options).subscribe(
+                    res => {
+                        this.successMessage = res.text();
+                        console.log(res.text());
+                        this.errorMessage = ""
+                    },
+                    error => {
+                        this.errorMessage = <any>error;
+                        this.successMessage = ""
+                    });
+            }
+        });
+
+
+        }
 }

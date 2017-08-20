@@ -43,4 +43,9 @@ public class UserResourceController {
         return "User with Uid '"+uid+"'resource deleted successfully!";
     }
 
+    @RequestMapping(value = "/rest/search/{name}/{phone}",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+    public Boolean searchUser(@PathVariable String name,@PathVariable String phone){
+        return userService.searchByNameAndPhone(name,phone);
+    }
+
 }
