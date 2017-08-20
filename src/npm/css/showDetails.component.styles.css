@@ -1,0 +1,46 @@
+@import "common.styles.css";
+
+#section-left {
+    float: left;
+    width: 40%;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+#section-right {
+    float: right;
+    width: 40%;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+#section-clear {
+    clear: both;
+}
+
+input[type=button] {
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+    width: 400px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.title{
+    color: black;
+    font-size: 20px;
+}
+
+.value{
+    color: forestgreen;
+    font-size: 18px;
+}
+
+.line {
+    color: black;
+    font-size: 24px;
+}

@@ -7,7 +7,8 @@ import {Bid} from "./bid";
 
 @Component({
     selector:'carDetails',
-    templateUrl:'../partials/carDetails.component.html'
+    templateUrl:'../partials/carDetails.component.html',
+    styleUrls:['../css/showDetails.component.styles.css','../css/common.styles.css'],
 })
 export class CarDetailsComponent  implements  OnInit{
 

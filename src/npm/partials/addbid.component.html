@@ -12,14 +12,19 @@
         </div>
         -->
 
-        Price: <input type='text' [(ngModel)]='bid.biddingPrice' name="biddingPrice" required min="{{oldBid.biddingPrice}}+1" #biddingPrice="ngModel"/>
+        Price: <input type='number' [(ngModel)]='bid.biddingPrice' name="biddingPrice" required #biddingPrice="ngModel"/>
         <div *ngIf="biddingPrice.errors && (biddingPrice.dirty || biddingPrice.touched)" class="alert alert-danger">
-            <div [hidden]="!yearOfBuying.errors.required">
-                Car make is required!
+            <div [hidden]="!biddingPrice.errors.required">
+                Required!
             </div>
         </div>
+        userId: <input type='number' [(ngModel)]='bid.userId' name="userId" required #userId="ngModel"/>
+                <div *ngIf="userId.errors && (userId.dirty || userId.touched)" class="alert alert-danger">
+                    <div [hidden]="!userId.errors.required">
+                        Required!
+                    </div>
+                </div>
         <br/>
-        userId: <input type='text' [(ngModel)]='userId' name="userId" /><br/>
         <input type='button' value='Add' (click)='makeBid();' />
 
     </form>

@@ -1,19 +1,28 @@
-<div>
-        <img width="500" height="300" [src]="imageUrl">
-        <table class="carDetails">
+<div id="section-left">
+    <h1 class="heading">{{car.make}} {{car.model}}</h1>
+
+        <table>
         <tr>
-            <td>Make</td><td>{{car.make}}</td>
+            <td class="title">Make:</td><td class="value">{{car.make}}</td>
             </tr>
-            <tr><td>Model</td> <td>{{car.model}} </td></tr>
-            <tr><td>Year Of Buying</td><td>{{car.yearOfBuying}}</td></tr>
-                	<tr><td>Distance Travelled</td><td>{{car.distanceTravelled}}</td></tr>
-                	<tr><td>Base Selling Price</td><td>{{car.baseSellingPrice}}</td></tr>
-            <tr><td>Remaining Days of Bidding</td><td>{{remainingDaysOfBidding}}</td></tr>
-            <tr><td *ngIf="!bid"> Be the first one to bid</td></tr>
-            <tr><td *ngIf="bid">Highest Bid for this car is: {{bid.biddingPrice}}</td></tr>
-
+            <tr><td class="title">Model:</td> <td class="value">{{car.model}} </td></tr>
+            <tr><td class="title">Year Of Buying:</td><td class="value">{{car.yearOfBuying}}</td></tr>
+                	<tr><td class="title">Distance Travelled:</td><td class="value">{{car.distanceTravelled}}</td></tr>
+                	<tr><td class="title">Base Selling Price:</td><td class="value">{{car.baseSellingPrice}}</td></tr>
+            <tr><td class="title">Remaining Days of Bidding:</td><td class="value">{{remainingDaysOfBidding}}</td></tr>
     </table>
+    <hr>
+    <h3 class="line" *ngIf="!bid"> Be the first one to bid</h3>
+    <h3 class="line" *ngIf="bid">Highest Bid for this car is: {{bid.biddingPrice}}</h3>
+</div>
 
+<div id="section-right">
+    <img width="500" height="300" [src]="imageUrl">
+</div>
+<div id="section-clear"></div>
+<br>
+<br>
+<div align="center">
     <input type="button" *ngIf="bid" name="Show All Bids" value="Show All Bids"(click)="allBids();">
     <input type="button" name="Make Bid" value="Make Bid"(click)="makeBid();">
-    </div>
+</div>

@@ -40,7 +40,7 @@ public class CarDAO {
     }
 
     public Collection<String> getOptions(String column) {
-        return entityManager.createQuery("select "+ column + " from Car").getResultList();
+        return entityManager.createQuery("select distinct "+ column + " from Car").getResultList();
     }
 
     public Collection<Car> getCars(String field, String fieldValue) {
