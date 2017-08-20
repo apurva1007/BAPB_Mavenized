@@ -14,7 +14,7 @@ export class RegisterComponent{
     errorMessage:string;
 
     constructor(private http:Http) {
-        this.user = new User("priyal","3356576788");
+        this.user = new User("","");
     }
 
     register(){

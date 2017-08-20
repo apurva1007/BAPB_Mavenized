@@ -3,24 +3,7 @@ import {Http,Headers, RequestOptions} from "@angular/http";
 import {Transaction} from "./transaction";
 @Component({
     selector:'showSold',
-    template:`<div>
-        <h1 class="heading"> All Sold Cars </h1>
-        <table class="gridtable">
-            <tr *ngIf="transactions">
-                <th>Make</th><th>Model</th><th>Base Selling Price</th><th>Bidding Price</th><th>Sold to</th>
-            </tr>
-            <tr *ngFor="let trans of transactions">
-                <td>{{trans.bid.car.make}}</td>
-                <td>{{trans.bid.car.model}}</td>
-                <td>{{trans.bid.car.baseSellingPrice}}</td>
-                <td>{{trans.bid.biddingPrice}}</td>
-                <td>{{trans.bid.user.name}}</td>
-            </tr>
-        </table>
-        
-    </div>`,
-
-
+    templateUrl:'../partials/showSoldCars.component.html',
     styleUrls:['../css/table.component.styles.css','../css/common.styles.css'],
 })
 export class ShowSoldCarsComponent implements OnInit{

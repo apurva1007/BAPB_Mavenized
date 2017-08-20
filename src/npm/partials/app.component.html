@@ -1,21 +1,19 @@
 <div>
     <div class="topnav" id="myTopnav">
-        <h1 class="bapb">BAP Bidders</h1>
-        <p class="marquee"><span>ONE... TWO... anddd..... SOLD !!!!</span></p>
+        <h1>BAP Bidders</h1>
     </div>
     <ul>
-        <li class="dropdown"> <a class="dropbtn" routerLink=""><img src="../images/home.png" width="40" height="40"></a></li>
+        <li class="dropdown"> <a class="dropbtn" routerLink=""><img src="../images/home.png" width="25" height="25"></a></li>
+        <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Admin Services</a>
+            <div class="dropdown-content"><a routerLink="/addCar">Add New Car</a></div>
+        </li>
         <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">User Services</a>
             <div class="dropdown-content"><a routerLink="/register">New Registration</a>
                 <a routerLink="/search">Search Cars</a>
             </div>
         </li>
-        <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Admin Services</a>
-            <div class="dropdown-content"><a routerLink="/addCar">Add New Car</a>
-            </div>
-        </li>
-        <li class="dropdown"><a class="dropbtn" routerLink="/showSold">All SOld Cars</a></li>
-    </ul>
+        <li class="dropdown"><a class="dropbtn" routerLink="/showSold">Sold Cars</a></li>
+        </ul>
     <router-outlet></router-outlet>
 
 

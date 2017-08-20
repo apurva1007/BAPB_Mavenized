@@ -6,7 +6,7 @@ import {Car} from "./car";
 @Component({
 	selector:'search',
 	templateUrl:'../partials/carSearch.component.html',
-    styleUrls:['../css/table.component.styles.css'],
+    styleUrls:['../css/table.component.styles.css', '../css/search.component.style.css'],
 })
 
 

@@ -3,20 +3,31 @@
     <div *ngIf="successMessage" [ngClass] = "'success'"> {{car.make}} {{car.model}} Added. </div>
     <div *ngIf="errorMessage" [ngClass] = "'error'"> {{errorMessage}} </div>
     <h1>{{title}}</h1>
-    <!--<label for="title">Make</label>
-    <input type="text" id="title" required minlength="3" maxlength="20" [(ngModel)]="car.make" name="make" #make="ngModel">
-    <div *ngIf="make.errors && (make.dirty || make.touched)" class="alert alert-danger">
-        <div [hidden]="!make.errors.required">
-            Car make is required!
+    Make: <input type='text' [(ngModel)]='car.make' name="make" required minlength="1" #make="ngModel"/><br/>
+        <div *ngIf="make.errors && (make.dirty || make.touched)" class="alert alert-danger">
+            <div [hidden]="!make.errors.required">
+                Required!            </div>
         </div>
-    </div>
-    -->
-
-    Model: <input type='text' [(ngModel)]='car.model' name="model" /><br/>
-    Make: <input type='text' [(ngModel)]='car.make' name="make" /><br/>
-    Year of Buying: <input type='text' [(ngModel)]='car.yearOfBuying' name="yearOfBuying" /><br/>
-    Distance Travelled: <input type='number' [(ngModel)]='car.distanceTravelled' name="distanceTravelled" /><br/>
-    Base Selling Price: <input type='number' [(ngModel)]='car.baseSellingPrice' name="baseSellingPrice" /><br/>
+    Model: <input type='text' [(ngModel)]='car.model' required minlength="1" #model="ngModel" name="model"/><br/>
+        <div *ngIf="model.errors && (model.dirty || model.touched)" class="alert alert-danger">
+            <div [hidden]="!model.errors.required">
+                Required!            </div>
+        </div>
+    Year of Buying: <input type='text' [(ngModel)]='car.yearOfBuying' name="yearOfBuying" required minlength="1" #yearOfBuying="ngModel"/><br/>
+        <div *ngIf="yearOfBuying.errors && (yearOfBuying.dirty || yearOfBuying.touched)" class="alert alert-danger">
+            <div [hidden]="!yearOfBuying.errors.required">
+                Required!            </div>
+        </div>
+    Distance Travelled: <input type='number' [(ngModel)]='car.distanceTravelled' name="distanceTravelled" required minlength="1" #distanceTravelled="ngModel"/><br/>
+        <div *ngIf="distanceTravelled.errors && (distanceTravelled.dirty || distanceTravelled.touched)" class="alert alert-danger">
+            <div [hidden]="!distanceTravelled.errors.required">
+                Required!            </div>
+        </div>
+    Base Selling Price: <input type='number' [(ngModel)]='car.baseSellingPrice' name="baseSellingPrice" required minlength="1" #baseSellingPrice="ngModel"/><br/>
+        <div *ngIf="baseSellingPrice.errors && (baseSellingPrice.dirty || baseSellingPrice.touched)" class="alert alert-danger">
+            <div [hidden]="!model.errors.required">
+                Required!            </div>
+        </div>
     <input type='button' value='Add' (click)='addCar();' [disabled]="!carForm.form.valid" />
 
     </form>

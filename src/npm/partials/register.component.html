@@ -4,8 +4,18 @@
     <div *ngIf="errorMessage" [ngClass] = "'error'"> {{errorMessage}} </div>
     <h1>Register New User</h1>
 
-    UserName: <input type="text" [(ngModel)] = 'user.name' name="name"/>
-    Phone: <input type ="text" [(ngModel)] = 'user.phone' name="phone"/>
+    UserName: <input type="text" [(ngModel)] = 'user.name' name="name" required minlength="1" #name="ngModel"/>
+        <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+            <div [hidden]="!name.errors.required">
+                Required!
+            </div>
+        </div>
+    Phone: <input type ="text" [(ngModel)] = 'user.phone' name="phone" required minlength="1" #phone="ngModel"/>
+        <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
+            <div [hidden]="!yearOfBuying.errors.required">
+                Required!
+            </div>
+        </div>
     <input type="button" value="SUBMIT" (click)="register();">
 
     </form>

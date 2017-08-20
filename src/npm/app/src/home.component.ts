@@ -3,6 +3,7 @@ import {Component, OnInit} from "@angular/core";
 @Component({
     selector:'home',
     templateUrl:'../partials/home.component.html',
+    styleUrls:['https://www.w3schools.com/w3css/4/w3.css', '../css/common.styles.css'],
 })
 export class HomeComponent {
 

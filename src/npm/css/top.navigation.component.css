@@ -1,30 +1,5 @@
 @import "common.styles.css";
 
-.marquee{
-    width: 1000px;
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-    color: white;
-    font-family: Arial;
-}
-
-.marquee span{
-    display: block;
-    padding-left: 100%;
-    animation: marquee 15s linear infinite;
-}
-
-.marquee span:hover{
-    animation-play-state: paused;
-}
-
-@keyframes marquee {
-    0% {transform: translate(0,0);}
-    100% {transform: translate(-100%,0);}
-}
-
 ul{
     list-style-type: none;
     margin: 0;
@@ -35,6 +10,8 @@ ul{
 
 li{
     float:left;
+    vertical-align: middle;
+    font-size: 25px;
 }
 
 li a, .dropbtn{
@@ -43,7 +20,6 @@ li a, .dropbtn{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    margin: 0;
 }
 
 li a:hover, .dropdown:hover .dropbtn{
@@ -79,12 +55,6 @@ li.dropdown{
     display: block;
 }
 
-.bapb{
-    font-size: 50px;
-    font-family: Impact;
-    color: white;
-    size: 50px;
-}
 .topnav {
     background-color: #4CAF50;
     overflow: hidden;
@@ -92,29 +62,9 @@ li.dropdown{
 }
 
 .topnav h1 {
-    float: left;
-    display: block;
     color: #f2f2f2;
-    text-align: center;
-    text-decoration: none;
-}
-
-/* Style the links inside the navigation bar */
-.topnav .button {
-    color: white;
-    width: 10%;
-    float: right;
-    display: block;
-    background-color: #4CAF50;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 22px;
-    border:none;
-}
-
-/* Change the color of links on hover */
-.topnav .button:hover {
-    background-color: #ddd;
-    color: #333333;
+    text-align: left;
+    font-size: 50px;
+    font-family: "Cooper Black";
+    padding-left: 15px;
 }
