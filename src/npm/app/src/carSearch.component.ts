@@ -53,10 +53,16 @@ export class SearchCarComponent implements  OnInit{
         var requestHeaders = new Headers({'Accept': 'application/json'});
         var options = new RequestOptions({headers: requestHeaders});
 
-        this.http.get(searchURL, options).subscribe(res => this.cars = res.json());
-        if(this.cars == null){
-            this.noOptions="No cars available right now. TRy something else.";
+        this.http.get(searchURL, options).subscribe(res => {
+            this.cars = res.json();
+                if(this.cars == null){
+                    console.log(this.cars);
+                    this.noOptions="No cars available right now. TRy something else.";
+                }
         }
+        );
+
+
     }
 
 }
