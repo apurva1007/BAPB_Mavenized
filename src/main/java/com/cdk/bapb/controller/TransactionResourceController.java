@@ -21,6 +21,9 @@ public class TransactionResourceController
 
     @RequestMapping(value = "/rest/soldCars",produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
     public Collection<Transaction> readAllSoldCarsAsJson(){
+        /*
+        * Rest API for reading all transactions made.
+        */
         return transactionService.readAllTransactions();
     }
 }

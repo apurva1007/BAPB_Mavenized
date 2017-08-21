@@ -27,6 +27,9 @@ public class BidResourceController {
 
     @RequestMapping(value = "/rest/bid/add",consumes ="application/json",method = RequestMethod.POST)
     public String addBid(@RequestBody Bid bid){
+        /*
+        * Rest API for adding a new bid.
+        */
         System.out.println(bid);
         int value = bidService.save(bid);
         return "Bid with Bid Id '"+value+" ' added successfully!";
@@ -34,6 +37,10 @@ public class BidResourceController {
 
     @RequestMapping(value = "/rest/highestbid/{carId}",produces ="application/json",method = RequestMethod.GET)
     public Bid readHighestBid(@PathVariable int carId) {
+        /*
+        * Rest API for getting highest bid on a car.
+        * Asks for car id and returns the highest bid made on it.
+        */
         Bid bid = bidService.readHighestBid(carId);
         return bid;
     }
@@ -52,6 +59,10 @@ public class BidResourceController {
 
     @RequestMapping(value = "/rest/bid/{carId}",produces ="application/json" ,method = RequestMethod.GET)
     public Collection<Bid> readAllBidsWithCarId(@PathVariable int carId) {
+        /*
+        * Rest API for getting all bids made on the car.
+        * Asks for car id and return all bids made on it.
+        */
         return bidService.readBidsByCar(carId);
     }
 }

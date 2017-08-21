@@ -6,10 +6,13 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @EnableScheduling
-public class SchedularConfig {
+public class SchedulerConfig {
 
     @Bean
     public CheckBidPeriod checkBidPeriod() {
+        /*
+        * Initialises Check Bid period scheduler.
+        */
         return new CheckBidPeriod();
     }
 }

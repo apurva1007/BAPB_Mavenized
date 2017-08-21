@@ -3,11 +3,11 @@ import {Component, OnInit} from "@angular/core";
 @Component({
     selector:'home',
     templateUrl:'../partials/home.component.html',
-    styleUrls:['https://www.w3schools.com/w3css/4/w3.css', '../css/common.styles.css'],
+    styleUrls:['../css/home.component.styles.css']
 })
 export class HomeComponent {
 
-    title:string ="Get the ";
+    title:string ="";
 
     // slideIndex:number = 1;
     //

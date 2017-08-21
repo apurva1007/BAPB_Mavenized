@@ -35,7 +35,15 @@ public class CheckBidPeriod {
 
     @Scheduled(fixedRate = 10000)
     public void checkBidCompleted() {
-
+        /*
+        * Scheduler for checking bidding period of each car.
+        * Executes after every 10 seconds.
+        * if remaining days of bidding is over,
+        * adds the car to transaction table with the highest bid made.
+        * And make its unavailable for future biddings.
+        * Also if no bid is made and its bidding period is over,
+        * increases the bidding period by 10.
+        */
 
         Collection<Car> cars = carDAO.getAvailableCars();
         Iterator<Car> itr = cars.iterator();

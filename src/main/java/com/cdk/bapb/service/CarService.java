@@ -1,16 +1,13 @@
 package com.cdk.bapb.service;
 
 import com.cdk.bapb.dao.CarDAO;
-import com.cdk.bapb.dao.CarRepository;
 import com.cdk.bapb.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class CarService {
@@ -19,9 +16,6 @@ public class CarService {
 
     @Autowired
     CarDAO carDAO;
-
-    @Autowired
-    CarRepository repo;
 
     public void setCarDAO(CarDAO carDAO) {
         this.carDAO = carDAO;
@@ -39,7 +33,7 @@ public class CarService {
 
     @Transactional
     public Car readById(int carId) {
-        return repo.findOne(carId);
+        return carDAO.selectById(carId);
     }
 
     @Transactional
@@ -49,13 +43,16 @@ public class CarService {
 
     @Transactional
     public Collection<Car> readAll(){
-//        return carDAO.selectAll();
-        return repo.findAll();
-
+        return carDAO.selectAll();
     }
 
     public long readRemainingDays(int carId){
-        Car car = repo.findOne(carId);
+        /*
+        * Service function to calculate remaining days of bidding.
+        * For particular car, entry date is added with its bidding period.
+        * Difference of current date and last bidding date is returned.
+        */
+        Car car = carDAO.selectById(carId);
         long add = car.getEntryDate().getTime() + car.getBiddingPeriod()*24*60*60*1000;
         Date lastBidDate = new Date(add);
         return (lastBidDate.getTime() - new Date().getTime())/ (1000 * 60 * 60 * 24)+1;
