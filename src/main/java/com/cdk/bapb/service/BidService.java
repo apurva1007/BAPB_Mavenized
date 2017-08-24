@@ -15,7 +15,10 @@ public class BidService {
     BidDAO bidDAO;
 
     @Transactional
-    public int save(Bid bid){ return bidDAO.save(bid); }
+    public int save(Bid bid){
+
+
+        return bidDAO.save(bid); }
 
     @Transactional
     public Bid readHighestBid(int carId) {
